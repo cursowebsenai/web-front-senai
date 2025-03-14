@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=Cherish&family=Outfit:wght@100..900&family=Overlock:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Saira:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap');
+
+html,
+body {
+    background-image: url(../img/gramado.jpg);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+.containerHeader a {
+    padding: 30px;
+    text-decoration: none;
+    list-style: none;
+}
+
+.containerHeader img {
+    border-radius: 50%;
+    height: 120px;
+}
+
+.containerHeader ul {
+    display: flex;
+    list-style: none;
+}
+
+
+
+.container-fluid {
+    width: 100%;
+    padding: 30px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgba(205, 238, 238, 0.315);
+}
+
+.containerHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerHeader a {
+    color: #bad4d4;
+}
+
+
+.col {
+    display: flex;
+    flex: 1;
+    padding: 25px;
+}
+
+.corMenu {
+    background-color: rgb(36, 51, 78);
+}
+
+
+
+.corRodape {
+    background-color: rgb(36, 51, 78);
+    color: #E0FFFF;
+}
+
+.fonteMenu {
+    font-family: "Overlock", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+}
+
+fonte .row {
+    align-items: center;
+    text-align: justify;
+
+}
+
+.row h1 {
+    padding-left: 50px;
+}
+
+.baseball {
+    background-color: rgba(186, 212, 212, 0.5);
+    padding: 35px;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.text {
+
+    background-color: rgba(148, 175, 175, 0.5);
+    padding: 35px;
+    border-radius: 10px;
+    margin: 35px;
+}
+
+.history {
+    padding: 20px;
+
+}
+
+.rodape {
+    display: flex;
+}
+
+.rodape a {
+    color: #bad4d4;
+    text-decoration: none;
+}
+
+.rodape li {
+    list-style: none;
+}
+
+.rodape img {
+    border-radius: 50%;
+}
+
+.criacao {
+    display: inline-block;
+
+}
+
+
+.container {
+    font-family: "Saira", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+    text-align: justify;
+    font-size: 14px;
+}
+
+.rodape {
+    font-family: "Antonio", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+
+a:hover {
+    color: #FFFAFA;
+}
+
+
+
+.imgMenu:hover{
+    opacity: 100%;
+}
+
+
+.imgMenu{
+    opacity: 75%;
+}

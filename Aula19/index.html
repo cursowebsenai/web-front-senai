@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 19</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/calculos.js"></script>
+</head>
+
+<body>
+
+    <!-- Topo da página -->
+    <div class="container-fluid bgcor1">
+        <h1>Javascript</h1>
+    </div>
+
+    <!-- Conteúdo externo -->
+    <div class="container bgcor3">
+        <!-- <div class="row">
+            <div class="col">
+                <h2>Primeiro Exemplo de JS</h2>
+                <script>
+                    window.alert('Bora Estudar!!!!!!!!!!!');
+                </script>
+            </div>
+            <div class="col">
+                <h2>Segundo Exemplo de JS</h2>
+                <script>
+                    var nome = window.prompt('Informe seu nome: ');
+                    window.alert('Bem vindo, ' + nome);
+                </script>
+            </div>
+            <div class="col">
+                <h2>Terceiro Exemplo de JS</h2>
+                <script>
+                    var valor1 = 0;
+                    var valor2 = 0;
+                    valor1 = parseInt(window.prompt('Digite o primeiro valor: '));
+                    valor2 = parseInt(window.prompt('Digite o segundo valor: '));
+                    window.alert('O total é: ' + (valor1 + valor2));
+
+                </script>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col">
+                <fieldset>
+                    <h2>Calculadora de area ao quadrado:</h2>
+                    <form action="">
+                        <label for="">Digite o valor a ser calculado:</label>
+                        <input type="number" name="valor" id="" min="0" max="200000000" placeholder="digite o número">
+                        <br>
+                        <input type="button" value="CALCULAR" onclick="calcularArea(valor.value)">
+                        <br>
+                        <input type="reset" value="LIMPAR">
+                    </form>
+                </fieldset>
+            </div>
+            <div class="col">
+                <fieldset>
+                    <h2>Calculadora Básica</h2>
+                    <form action="">
+                        <label for="Valor 1">Valor 1</label>
+                        <input type="number" name="v1" id=""><br>
+                        <label for="valor 2">Valor 2</label>
+                        <input type="number" name="v2"><br>
+
+                        <input type="button" value="+" onclick="somar(v1.value, v2.value)">
+                        <input type="button" value="-" onclick="subtrair(v1.value, v2.value)">
+                        <input type="button" value="*" onclick="multiplicar(v1.value, v2.value)">
+                        <input type="button" value="/" onclick="dividir(v1.value, v2.value)">
+                        <input type="reset" value="LIMPAR">
+                    </form>
+                </fieldset>
+            </div>
+            <div class="col">
+                <fieldset>
+                    <h2>Boletim Escolar WEB - FrontEnd</h2>
+                    <form action="">
+                        <label for="">1bim</label>
+                        <input type="number" name="n1" id="" placeholder="nota1" min="0" max="10">
+                        <br>
+                        <label for="">2bim</label>
+                        <input type="number" name="n2" id="" placeholder="nota2" min="0" max="10">
+                        <br>
+                        <label for="">3bim</label>
+                        <input type="number" name="n3" id="" placeholder="nota3" min="0" max="10">
+                        <br>
+                        <label for="">4bim</label>
+                        <input type="number" name="n4" id="" placeholder="nota4" min="0" max="10">
+                        <br>
+                        <input type="button" value="MÉDIA FINAL"
+                            onclick="calcularMedia(n1.value, n2.value, n3.value, n4.value )">
+                        <br>
+                        <input type="reset" value="LIMPAR NOTAS">
+                        <br>
+                        <label for="">Média Final:</label>
+                        <input type="number" name="" id="media" readonly>
+                    </form>
+                </fieldset>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <fieldset>
+                        <h2>Perimetro de um Quadrado/Retangulo</h2>
+                        <form action="">
+                            <label for="">Largura</label>
+                            <input type="number" name="larg" id="">
+                            <br>
+                            <label for="">Altura</label>
+                            <input type="number" name="altura" id="">
+                            <br>
+                            <input type="button" value="PERIMETRO" onclick="calcularPerimetro(larg.value, altura.value)">
+                            <input type="reset" value="LIMPAR">
+                            <br>
+                            <label for="">Perimetro do Quadrado:</label>
+                            <input type="number" name="" id="perimetro" readonly>
+                        </form>
+                    </fieldset>
+                </div>
+                
+            </div>
+
+
+            <div class="row">
+                <div class="col">
+                    <fieldset>
+                        <h2>Calcular Volume da Caixa</h2>
+                        <form action="">
+                            <label for="">Largura</label>
+                            <input type="number" name="larg2" id="">
+                            <br>
+                            <label for="">Altura</label>
+                            <input type="number" name="altura2" id="">
+                            <br>
+                            <label for="">Profundidade</label>
+                            <input type="number" name="prof" id="">
+
+                            <input type="button" value="VOLUME" onclick="calcularVolumeCaixa(larg2.value, altura2.value, prof.value)">
+                            <input type="reset" value="LIMPAR">
+                            <br>
+                            <label for="">Volume Total:</label>
+                            <input type="number" name="" id="volume" readonly>
+                        </form>
+                    </fieldset>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <fieldset>
+                            <h2>Calcular Volume do Cilindro</h2>
+                            <form action="">
+                                <label for="">Altura</label>
+                                <input type="number" name="altura3" id="">
+                                <br>
+
+                                <label for="">Raio</label>
+                                <input type="number" name="raio" id="">
+                                <br>
+                              
+    
+                                <input type="button" value="VOLUME" onclick="calcularVolumeCilindro(altura3.value, raio.value)">
+                                <input type="reset" value="LIMPAR">
+                                <br>
+                                <label for="">Volume Total:</label>
+                                <input type="number" name="" id="volumeCil" readonly>
+                            </form>
+                        </fieldset>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rodapé da página -->
+    <div class="container-fluid bgcor2">
+        <h1>Aula 19</h1>
+        <p>Criado por: <a href="">Will Be Digital</a></p>
+        <p>Copyrights © 2025.</p>
+    </div>
+</body>
+
+</html>

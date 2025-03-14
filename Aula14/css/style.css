@@ -1,0 +1,108 @@
+hmtl,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: rgb(247, 237, 237);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container-fluid {
+    height: 25%;
+    background-color: rgb(31, 0, 0);
+}
+
+.colHeaderList {
+    width: 100%;
+    padding-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    background-color: rgb(72, 81, 90);
+    opacity: 80%;
+    position:fixed;
+}
+
+.colHeaderList li {
+    padding: 20px;
+}
+
+.colHeaderList li a{
+    padding: 20px;
+    color: red;
+
+}
+.container {
+    padding-top: 50px;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    background-color: rgb(44, 30, 30);
+    color: antiquewhite;
+
+}
+
+
+.container .row1 {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+    text-align: justify;
+    padding: 60px;
+    align-items: center;
+    background-color: rgb(20, 3, 3);
+    padding: 50px;
+}
+
+.col1 {
+    width: 40%;
+    padding-left: 20px;
+
+}
+
+.col2 {
+    width: 60%;
+    padding-left: 40px;
+
+
+}
+
+.colFooter .row {
+    background-color: aliceblue;
+    color: black;
+    display: flex;
+}
+
+
+.bg1 {
+    height: 550px;
+    background-image: url(../img/Palco.jpg);
+    background-repeat:round;
+    background-size: contain;
+    background-position-y: center;
+    background-attachment: fixed;
+}
+
+/* Media Queries */
+@media(max-width:600px) {
+    .container-fluid {
+        background-color: aquamarine;
+        color: black;
+        text-align: center;
+    }
+
+    .row {
+        display: block;
+    }
+}
+
+@media(min-width: 600px) and (max-width:1200px) {
+    .row {
+        display: block;
+    }
+}

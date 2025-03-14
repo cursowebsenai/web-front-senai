@@ -1,0 +1,85 @@
+hmtl,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* classes de CSS */
+.container-fluid {
+    width: 100%;
+    height: 25%;
+    background-color: brown;
+    color: aliceblue;
+    padding: 30px;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(219, 219, 108);
+    padding: 30px;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    flex: 1;
+    padding: 1rem;
+}
+
+.img-fluid {
+    width: 100%;
+}
+
+.col1{
+    width: 20%;
+    padding: 20px;
+}
+
+.col2{
+    width: 25%;
+    padding: 20px;
+}
+
+.col3{
+    width: 30%;
+    padding: 20px;
+}
+
+.col4{
+    width: 40%;
+    padding: 20px;
+}
+
+
+.col5{
+    width: 50%;
+    padding: 20px;
+}
+
+/* Media Queries */
+@media(max-width:600px) {
+    .container-fluid {
+        background-color: aquamarine;
+        color: black;
+        text-align: center;
+    }
+
+    .row{
+        display: block;
+    }
+}
+
+@media(min-width: 600px) and (max-width:1200px) {
+    .row {
+        display: block;
+    }
+}
