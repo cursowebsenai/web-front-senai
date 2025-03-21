@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 22</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/aula22.js"></script>
+</head>
+
+<body>
+    <!-- Topo -->
+    <div class="container-fluid bgTopo">
+        <h1>Aula 22 - Lógicas Condicionais</h1>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="container">
+        <!-- primeira linha -->
+        <div class="row">
+            <div class="col">
+                <h2>Melhor Combustível</h2>
+                <form action="">
+                    <label for="alcool">Alcool</label>
+                    <input type="number" name="alc" id="alcool" placeholder="R$ - ">
+                    <br>
+                    <label for="gasolina">Gasolina</label>
+                    <input type="number" name="gas" id="gasolina" placeholder="R$ - ">
+                    <br>
+                    <hr>
+                    <input type="button" value="VERIFICAR" onclick="melhorComb(alc.value, gas.value)">
+                    <input type="reset" value="LIMPAR">
+                    <br>
+                    <hr>
+
+                    <label for="">Melhor Opção:</label>
+                    <input type="text" name="" id="combustivel" readonly>
+                </form>
+            </div>
+
+            <div class="col">
+                <h2>Sistema de Pagamento Bancário</h2>
+                <form action="">
+                    <label for="">Valor do Boleto</label>
+                    <input type="number" name="boleto" id="" placeholder="R$ - ">
+                    <hr>
+                    <label for="">Data de Vencimento:</label>
+                    <input type="date" name="dataV" id="">
+                    <br>
+                    <label for="">Data de Pagamento</label>
+                    <input type="date" name="dataP" id="">
+                    <br><input type="button" value="Calcular Boleto"
+                        onclick="calcBoleto(boleto.value, dataV.value, dataP.value)">
+                    <input type="reset" value="LIMPAR">
+                    <hr>
+                    <label for="">Valor a Pagar: </label>
+                    <input type="number" name="" id="valorBoleto" readonly placeholder="R$ - ">
+                </form>
+            </div>
+        </div>
+
+
+        <!-- segunda linha -->
+        <div class="row">
+            <div class="col">
+                <h2>Dia da Semana</h2>
+                <form action="">
+                    <label for="">Escolha um número</label>
+                    <input type="number" name="dia" id="">
+                    <input type="button" value="VERIFICAR" onclick="verDia(dia.value)">
+                    <br>
+                    <label for="">Dia Escolhido</label>
+                    <input type="text" name="" id="diaSemana" readonly>
+                    <input type="reset" value="LIMPAR">
+                </form>
+            </div>
+
+
+            <div class="col">
+                <h2>Dia da Semana 2</h2>
+                <form action="">
+                    <label for="">Escolha um número</label>
+                    <input type="number" name="dia" id="">
+                    <input type="button" value="VERIFICAR" onclick="verDia2(dia.value)">
+                    <br>
+                    <label for="">Dia Escolhido</label>
+                    <input type="text" name="" id="diaSemana2" readonly>
+                    <input type="reset" value="LIMPAR">
+                </form>
+            </div>
+        </div>
+
+        <!-- terceira linha -->
+        <div class="row">
+            <div class="col">
+                <h2>Vaga de Emprego</h2>
+                <form action="">
+                    <label for="">Nome do Candidato:</label>
+                    <input type="text" name="nome" id="" placeholder="Seu nome">
+                    <br>
+                    <label for="">Idade</label>
+                    <input type="number" name="idade" placeholder="xx anos">
+                    <br>
+                    <label for="">Formação:</label>
+                    <input type="text" name="formacao">
+                    <br>
+                    <label for="">Nível de Inglês :</label>
+
+                    <input type="text" name="nivelIngles">
+                    <br>
+                    <input type="button" value="AVALIAR"
+                        onclick="triagem(nome.value, idade.value, formacao.value, nivelIngles.value)">
+                    <input type="reset" name="" value="LIMPAR">
+                    <input type="text" id="resposta" readonly>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Quarta linha -->
+        <div class="row">
+            <div class="col">
+                <h2>Calcular IMC</h2>
+                <form action="">
+                    <label for="">Altura</label>
+                    <input type="number" name="altura" id="" placeholder="Digite a altura">
+                    <br>
+                    <label for="">Peso</label>
+                    <input type="number" name="peso" placeholder="Digite o peso">
+                    <br>
+                    <input type="button" value="Calcular" onclick="calcularImc(altura.value, peso.value)">
+                    <input type="reset" name="" value="LIMPAR">
+                    <input type="text" id="resultadoCalculoImc" readonly>
+                </form>
+            </div>
+        </div>
+
+
+        <!-- Quinta linha -->
+        <div class="row">
+            <div class="col">
+                <h2>Calculadora de Salário</h2>
+                <form action="">
+                    <label for="">Nome do Funcionário</label>
+                    <input type="text" name="nome" id="" placeholder="Digite o nome">
+                    <br>
+                    <label for="">Cargo</label>
+                    <input type="text" name="cargo" id="" placeholder="Digite o cargo">
+                    <br>
+                    <label for="">Dependentes</label>
+                    <input type="number" name="dependentes" id="" placeholder="Quantidade">
+                    <br>
+                    <label for="">Salário Bruto</label>
+                    <input type="number" name="salario" id="" placeholder="R$">
+                    <br>
+                    <input type="button" value="Calcular" onclick="calcularImcInss(salario.value)">
+                    <input type="reset" name="" value="Limpar Dados">
+                    <br>
+                    <input type="text" id="resultadoCalculoInss" readonly>
+                    <br>
+                    <label for="">Vale Transporte</label>
+                    <input type="number" id="vTransporte" readonly placeholder="VT (6%)">
+                    <br>
+                    <label for="">Vale Alimentação</label>
+                    <input type="text" id="vAlimentacao" readonly placeholder="VA (3,8%)">
+                    <br>
+                    <label for="">Plano de Saúde</label>
+                    <input type="text" id="pSaude" readonly placeholder="(p/pessoa)">
+                    <br>
+                    <label for="">INSS</label>
+                    <input type="text" id="inss" readonly placeholder="INSS (tabela 2025)">
+                    <br>
+                    <label for="">IRRF</label>
+                    <input type="text" id="irrf" readonly placeholder="IRRF (tabela 2025)">
+                    <br>
+                    <hr>
+                    <label for="">Total de Descontos</label>
+                    <input type="number" id="totalDescontos" readonly placeholder="R$ - ">
+                    <br>
+                    <hr>
+                    <label for="">Salário Líquido</label>
+                    <input type="number" id="salarioLiquido" readonly placeholder="R$ - ">
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- Rodapé -->
+    <div class="container-fluid bgRodape">
+        <p>Copyrights © 2025.</p>
+        <a href="">Criado por Will Be Digital</a>
+    </div>
+
+</body>
+
+</html>

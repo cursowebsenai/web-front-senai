@@ -31,8 +31,12 @@ function multiplicar(x, y) {
 function dividir(x, y) {
     valor1 = parseInt(x);
     valor2 = parseInt(y);
+    if (valor2 == 0) {
+        window.alert("Não é possível dividir por ZERO");
+    }
+    else{
     var res = valor1 / valor2;
-    window.alert("O valor da divisão dos valores é: " + res);
+    window.alert("O valor da divisão dos valores é: " + res);}
 }
 
 function calcularMedia(b1, b2, b3, b4) {
@@ -47,7 +51,13 @@ function calcularMedia(b1, b2, b3, b4) {
 
     // saida de resultado para o usuario
     document.getElementById('media').value = mediaFinal;
+    if (mediaFinal > 6) {
+        document.getElementById('resultado').value = "Aprovado";
+    }
+    else { document.getElementById('resultado').value = "Reprovado"; }
 }
+
+
 
 function calcularPerimetro(l, a) {
     var largura = parseFloat(l);
