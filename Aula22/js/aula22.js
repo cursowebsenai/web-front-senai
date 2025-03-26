@@ -183,46 +183,103 @@ function triagem(n, i, f, ni) {
 function calcularImc(a, p) {
     var altura = parseFloat(a);
     var peso = parseFloat(p);
-    resultado = peso / (altura * 2);
+    var resultadoImc = peso / (altura * 2);
 
-    if (resultado < 18.5) {
-        document.getElementById('resultadoCalculoImc').value = resultado.toFixed(2) + " - Magreza";
+    if (resultadoImc < 18.5) {
+        " - Magreza";
     }
-    else if (resultado >= 18.5 && resultado <= 24.9) {
-        document.getElementById('resultadoCalculoImc').value = resultado.toFixed(2) + " - Normal";
-    }
-
-    else if (resultado >= 25 && resultado <= 29.9) {
-        document.getElementById('resultadoCalculoImc').value = resultado.toFixed(2) + " - Sobrepeso";
+    else if (resultadoImc > 18.5) {
+        " - Normal";
     }
 
-    else if (resultado >= 30 && resultado <= 39.9) {
-        document.getElementById('resultadoCalculoImc').value = resultado.toFixed(2) + " - Obesidade";
+    else if (resultadoImc >= 25) {
+        " - Sobrepeso";
     }
-    else if (resultado >= 40) {
-        document.getElementById('resultadoCalculoImc').value = resultado.toFixed(2) + " - Obesidade Grave";
+
+    else if (resultadoImc >= 30) {
+        " - Obesidade";
     }
+    else if (resultadoImc >= 40) {
+        " - Obesidade Grave";
+    }
+
+    document.getElementById('resultadoCalculoImc').value = resultadoImc.toFixed(2);
 }
 
+
 //Função para calcular INSS
-function calcularImcInss(s) {
+function calcularInss(a, c, s, d) {
+    var nome = a;
+    var cargo = c;
     var salario = parseFloat(s);
-        resultado = 0;
+    var dependentes = parseInt(d);
+    var vt;
+    var va;
+    var resultadoInss = 0;
+    var resultadoIrrf = 0;
+    var ps;
 
+    //Cálculo do vale transporte
+    vt = salario * (6 / 100);
+    document.getElementById('vTransporte').value = vt.toFixed(2);
+
+    //Cálculo do vale alimentação
+    va = salario * (3.8 / 100);
+    document.getElementById('vAlimentacao').value = va.toFixed(2);
+
+    //quantidade de dependetes
+    if (dependentes == NaN) {
+        ps = 187.90;
+    }
+    else {
+        ps = (dependentes + 1) * 187.90;
+    }
+    document.getElementById('pSaude').value = ps.toFixed(2);
+
+    //Calcular INSS
     if (salario <= 1518) {
-        resultado = salario * (7.5 / 100);
+        resultadoInss = salario * (7.5 / 100);
     }
 
-    else if (salario > 1518 && salario <= 2793.88) {
-        resultado = salario * (9 / 100);
+    else if (salario > 1518) {
+        resultadoInss = salario * (9 / 100);
     }
-    else if (salario > 2793.88 && salario <= 4190.83) {
-        resultado = salario * (12 / 100);
+    else if (salario > 2793.88) {
+        resultadoInss = salario * (12 / 100);
     }
     else if (salario > 4190.83 && salario < 8157.41) {
-        resultado = salario * (12 / 100);
+        resultadoInss = salario * (12 / 100);
     }
+    else {
+        resultadoInss = salario * (14 / 100);
+    }
+    document.getElementById('inss').value = resultadoInss.toFixed(2);
 
-    document.getElementById('resultadoCalculoInss').value = resultado;
+
+    //Calcular IRRF
+    if (salario <= 2259.20) {
+        resultadoIrrf = 0;
+    }
+    else if (salario > 2559.20) {
+        resultadoIrrf = salario * (7.5 / 100);
+    }
+    else if (salario > 22826.65) {
+        resultadoIrrf = salario * (15 / 100);
+    }
+    else if (salario > 3751.05 && salario < 44664.68) {
+        resultadoIrrf = salario * (22 / 100);
+    }
+    else {
+        resultadoIrrf = salario * (27 / 100);
+    }
+    document.getElementById('irrf').value = resultadoIrrf.toFixed(2);
+
+    //Soma total dos descontos
+    var totalDescontos = vt + va + resultadoIrrf + resultadoInss;
+    document.getElementById('totalDescontos').value = totalDescontos.toFixed(2);
+
+    //Soma do salario total liquido
+    var salLiquido = salario - totalDescontos - ps;
+    document.getElementById('salarioLiquido').value = salLiquido.toFixed(2);
 
 }
