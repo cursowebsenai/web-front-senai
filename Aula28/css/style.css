@@ -1,0 +1,41 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container-fluid {
+    width: 100%;
+    height: 20%;
+    padding: 40px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.bgCor1 {
+    background-color: aqua;
+}
+
+.bgCor2 {
+    background-color: crimson;
+    color: white;
+    text-align: center;
+}
+
+.bgCor3 {
+    background-color: cornsilk;
+}
+
+.col {
+    flex: 1;
+    padding: 30px;
+}

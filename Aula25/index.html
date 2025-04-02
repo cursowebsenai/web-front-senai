@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quitanda IANES</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -18,20 +18,65 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+
+    <script src="./js/mercado.js"></script>
 </head>
 
 <body>
     <!-- topo da página e menu -->
-    <div class="container-fluid"></div>
+    <div class="container-fluid">
+        <div class="row">
+            <ul>
+                <li>
+                    <h2>FRT</h2>
+                </li>
+
+
+                <li>
+                    <h1>FRUTTERO HIPERMERCADO</h1>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <!-- conteúdo da página -->
     <div class="container">
 
         <!-- apresentação do mercado -->
-        <div class="section"></div>
+        <div class="section apresentacao" id="apresentacao">
+            <div class="container text-center">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <img src="./img/supermarket-507295_1920.jpg" height="400" alt="">
+                    </div>
+                    <div class="col text-center">
+
+                        <h3>Hipermercado Online: Variedade de Produtos com Preços Imbatíveis</h3>
+                        <p>Hipermercado Online: Variedade de Produtos com Preços Imbatíveis
+
+                            Bem-vindo ao [Nome do Hipermercado], o seu destino online para tudo o que você precisa.
+                            Oferecemos uma enorme variedade de produtos, desde alimentos frescos e congelados até itens
+                            de cuidados pessoais, eletrônicos e utensílios domésticos. Navegue em nosso site e encontre
+                            tudo o que você precisa em um só lugar, com entrega rápida e segura.
+
+                            Por que escolher [Nome do Hipermercado]?
+
+                            Variedade incomparável: Encontre desde produtos de supermercado até eletrodomésticos e mais.
+
+                            Preços baixos: Oferecemos promoções e descontos especiais para você economizar.
+
+                            Facilidade de compra: Compra fácil, segura e entrega rápida até a sua casa.
+
+                            Qualidade garantida: Trabalhamos com as melhores marcas do mercado para garantir a
+                            qualidade.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
         <!-- estoque mercado -->
-        <div class="section">
+        <div class="section produtos" id="produtos">
             <h2>Itens do Mercado</h2>
             <hr>
             <table class="table">
@@ -47,41 +92,602 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row"><img src="img/açucar.png" alt=""></th>
+                            <th scope="row"><img src="img/alho.png" alt=""></th>
                             <td>
-                                <h3>Item...</h3>
-                                <p>descrição...</p>
+                                <h3>Alho</h3>
+                                <p>1 Kg alho</p>
                             </td>
                             <td>
-                                <input type="number" name="vuProd1" id="" value="00.00" readonly>
+                                <input type="number" name="vuProd1" id="" value="03.70" readonly>
                             </td>
                             <td>
-                                <input type="number" name="qtdPrd1" onchange="vuProdt1.value, vuProdt1.value">
+                                <input type="number" name="qtdPrd1" onchange='subProdt1(vuProd1.value, qtdPrd1.value)'>
                             </td>
                             <td>
                                 <input type="number" name="" id="subtotal1" readonly>
                             </td>
                         </tr>
+
+
+
+                        <tr>
+                            <th scope="row"><img src="img/amaciante.png" alt=""></th>
+                            <td>
+                                <h3>Amaciante</h3>
+                                <p>Amaciante Comfort 4L</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd2" id="" value="09.15" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd2" onchange='subProdt2(vuProd2.value, qtdPrd2.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal2" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/açucar.png" alt=""></th>
+                            <td>
+                                <h3>Açucar Refinado</h3>
+                                <p>1 Pct Açucar União 1kg</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd3" id="" value="05.20" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd3" onchange='subProdt3(vuProd3.value, qtdPrd3.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal3" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/arroz.png" alt=""></th>
+                            <td>
+                                <h3>Arroz</h3>
+                                <p>Pct 5kg Arroz Camil</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd4" id="" value="31.26" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd4" onchange='subProdt4(vuProd4.value, qtdPrd4.value)'>
+                            </td>
+                            <td> <input type="number" name="" id="subtotal4" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/batata.png" alt=""></th>
+                            <td>
+                                <h3>Batata</h3>
+                                <p>1Kg Batata</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd5" id="" value="09.99" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd5" onchange='subProdt5(vuProd5.value, qtdPrd5.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal5" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/biscoito recheado2.png" id="oreo" alt=""></th>
+                            <td>
+                                <h3>Biscoito Recheado</h3>
+                                <p>Embalagem 144g Biscoito Oreo</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd6" id="" value="04.36" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd6" onchange='subProdt6(vuProd6.value, qtdPrd6.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal6" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/biscoitosalgado.png" alt=""></th>
+                            <td>
+                                <h3>Biscoito Água e Sal</h3>
+                                <p>1 pct 400g Biscoito Água e Sal</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd7" id="" value="03.89" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd7" onchange='subProdt7(vuProd7.value, qtdPrd7.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal7" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/cafe.png" id="cafe" alt="" ></th>
+                            <td>
+                                <h3>Pó de Café</h3>
+                                <p>1 Pct 500g Café Extraforte 3Corações</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd8" id="" value="32.12" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd8" onchange='subProdt8(vuProd8.value, qtdPrd8.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal8" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/cebola.png" alt=""></th>
+                            <td>
+                                <h3>Cebola</h3>
+                                <p>1 Kg Cebola</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd9" id="" value="09.41" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd9" onchange='subProdt9(vuProd9.value, qtdPrd9.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal9" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/cremedentasl.png" alt=""></th>
+                            <td>
+                                <h3>Creme Dental</h3>
+                                <p>Embalagem Creme Dental Colgate 12</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd10" id="" value="06.28" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd10"
+                                    onchange='subProdt10(vuProd10.value, qtdPrd10.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal10" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/detergente.png" alt=""></th>
+                            <td>
+                                <h3>Detergente</h3>
+                                <p>Embalagem Sabão Liquido</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd11" id="" value="01.98" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd11"
+                                    onchange='subProdt11(vuProd11.value, qtdPrd11.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal11" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/feijão.png" alt=""></th>
+                            <td>
+                                <h3>Feijão</h3>
+                                <p>1Kg Feijão Carioca Camil</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd12" id="" value="14.31" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd12"
+                                    onchange='subProdt12(vuProd12.value, qtdPrd12.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal12" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/filtrocafe.png" alt=""></th>
+                            <td>
+                                <h3>Filtro de Papel</h3>
+                                <p>Embalagem 30 unidades Filtro de Papel Melita</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd13" id="" value="08.61" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd13"
+                                    onchange='subProdt13(vuProd13.value, qtdPrd13.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal13" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/leite.png" alt=""></th>
+                            <td>
+                                <h3>Leite</h3>
+                                <p>1L Leite Integral Piracanjuba </p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd14" id="" value="05.59" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd14"
+                                    onchange='subProdt14(vuProd14.value, qtdPrd14.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal14" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/macarrão.png" alt=""></th>
+                            <td>
+                                <h3>Macarrão Parafuso</h3>
+                                <p>Pct 500g Macarrão de Sêmola Galo</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd15" id="" value="03.69" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd15"
+                                    onchange='subProdt15(vuProd15.value, qtdPrd15.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal15" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/manteiga1.png" alt=""></th>
+                            <td>
+                                <h3>Manteiga</h3>
+                                <p>Embalagem Manteiga Tilam</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd16" id="" value="04.72" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd16"
+                                    onchange='subProdt16(vuProd16.value, qtdPrd16.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal16" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/margarina.png" id="qualy" alt=""></th>
+                            <td>
+                                <h3>Margarina Cremosa</h3>
+                                <p>Margarina Cremosa com Sal Qualy</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd17" id="" value="06.64" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd17"
+                                    onchange='subProdt17(vuProd17.value, qtdPrd17.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal17" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/oleo.png" alt=""></th>
+                            <td>
+                                <h3>Óleo Vegetal</h3>
+                                <p>Óleo Vegetal Soya</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd19" id="" value="12.99" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd19"
+                                    onchange='subProdt19(vuProd19.value, qtdPrd19.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal19" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/ovos.png" alt=""></th>
+                            <td>
+                                <h3>Ovos</h3>
+                                <p>Cartela 12 Ovos</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd20" id="" value="11.53" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd20"
+                                    onchange='subProdt20(vuProd20.value, qtdPrd20.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal20" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/pao forma.png" alt=""></th>
+                            <td>
+                                <h3>Pão de Forma</h3>
+                                <p>Pão de Forma Bauduco Tradicional</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd21" id="" value="07.89" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd21"
+                                    onchange='subProdt21(vuProd21.value, qtdPrd21.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal21" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/papelhigienico.png" alt=""></th>
+                            <td>
+                                <h3>Papal Higiênico</h3>
+                                <p>Embalagem 12 Papél Higiênico Personal Vip</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd22" id="" value="17.34" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd22"
+                                    onchange='subProdt22(vuProd22.value, qtdPrd22.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal22" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/refrigerante.png" alt=""></th>
+                            <td>
+                                <h3>Refrigerante</h3>
+                                <p>2L Refrigerante Coca-Cola</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd23" id="" value="10.27" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd23"
+                                    onchange='subProdt23(vuProd23.value, qtdPrd23.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal23" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/sabao em po.png" alt=""></th>
+                            <td>
+                                <h3>Sabão em Pó</h3>
+                                <p>Embalagem 1kg Sabão em Pó Tixan Ypê</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd24" id="" value="18.11" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd24"
+                                    onchange='subProdt24(vuProd24.value, qtdPrd24.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal24" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/shampoo1.png" alt=""></th>
+                            <td>
+                                <h3>Shampoo</h3>
+                                <p>Shampoo Dove Pró-age</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd25" id="" value="14.33" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd25"
+                                    onchange='subProdt25(vuProd25.value, qtdPrd25.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal25" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/veja.png" alt=""></th>
+                            <td>
+                                <h3>Alvejante</h3>
+                                <p>Embalagem 500ml Alvejante Veja</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd26" id="" value="11.88" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd26"
+                                    onchange='subProdt26(vuProd26.value, qtdPrd26.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal26" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row"><img src="img/yogurte.png" alt=""></th>
+                            <td>
+                                <h3>Yogurte</h3>
+                                <p>Embalagem 6 Unidade Yogurte Itambé</p>
+                            </td>
+                            <td>
+                                <input type="number" name="vuProd27" id="" value="07.43" readonly>
+                            </td>
+                            <td>
+                                <input type="number" name="qtdPrd27"
+                                    onchange='subProdt27(vuProd27.value, qtdPrd27.value)'>
+                            </td>
+                            <td>
+                                <input type="number" name="" id="subtotal27" readonly>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="3">
+                                <h3>Total da Compra</h3>
+                            </td>
+                            <td>
+                                <input type="button" value="Finalizar" onclick="finalizarCompra()">
+                                <input type="number" name="" id="totalGeral" readonly>
+                            </td>
+                        </tr>
+
+
                     </tbody>
                 </form>
             </table>
         </div>
 
-        <!-- promoçoes -->
-        <div class="section"></div>
 
-        <!-- mapa do mercado -->
-        <div class="section"></div>
+
+
+
+        <!-- promoçoes -->
+        <div class="section" id="ofertas">
+            <div class="container text-center">
+                <div class="row align-items-start">
+                    <div class="col">
+                        <div class="card">
+
+
+                            <div class="card-body">
+                                <h5 class="card-title">Café 3 Corações</h5>
+                                <img src="./img/cafe.png" height="100" alt="">
+                                <p class="card-text">Pó de café</p>
+                                <a href="#cafe" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body" id="arroz">
+                                <h5 class="card-title">Arroz Camil</h5>
+                                <img src="./img/arroz.png" height="100" alt="">
+                                <p class="card-text">5kg Arroz Camil.</p>
+                                <a href="#arroz" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Biscoito Recheado
+                                </h5>
+                                <img src="./img/biscoito recheado2.png" height="100" alt="">
+                                <p class="card-text">Biscoito Oreo</p>
+                                <a href="#oreo" class="btn btn-primary">comprar</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Margarina Qualy</h5>
+                                <img src="./img/margarina.png" height="100" alt="">
+                                <p class="card-text">Margarina de leite qualy</p>
+                                <a href="#qualy" class="btn btn-primary">Comprar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- mapa do mercado -->
+    <div class="section">
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.865309829629!2d-46.561209823757636!3d-23.64499416467174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce4328c992748f%3A0xcea3c3e698444297!2sSENAI%20S%C3%A3o%20Caetano%20do%20Sul!5e0!3m2!1spt-BR!2sbr!4v1743186896524!5m2!1spt-BR!2sbr"
+                width="600" height="450" style="border:5;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 
     <!-- rodapé da página -->
     <div class="container-fluid">
-        <div class="row">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
+
+        <div class="col">
+            <div class="row">
+                <div class="container text-center">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                        <div class="row">
+                            <div class="col">
+                                <h2>Criado por</h2>
+                                <p><a href="">Will Be Digital</a>
+                                </p>
+                            </div>
+                            <div class="col">
+                                <ul>
+                                    <li>
+                                        <p><a href="#nicio">Inicio</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="#apresentacao">Apresentação</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="#produtos">Produtos</a></p>
+                                    </li>
+                                    <li>
+                                        <p><a href="#ofertas">Ofertas</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col">
+
+                                <p><a href="#">Instagram</a></p>
+
+                                <p><a href="#">Whatsapp</a></p>
+
+
+                                <p><a href="#">Email</a></p>
+
+
+                                <p><a href="#">Tel (11) 5555-9999</a></p>
+
+
+                            </div>
+                            <div class="col">
+                                <p>Todos os Direitos Reservados © 2025.</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
         </div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+    </div>
     </div>
 </body>
 
