@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/pascoa.js"></script>
+</head>
+
+<body class="bg1">
+    <div class="form-container">
+        <form action="">
+            <h2>Olá</h2>
+            <label for="">Digite seu Nome:</label>
+            <input type="text" name="nome" id="nome">
+            <br>
+            <select for="sexo" id="sexo">
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+            </select>
+
+            <input type="button" value="ENVAR" onclick="formPascoa(nome.value, sexo.value)">
+
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 29</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/banco.js"></script>
+</head>
+
+<body>
+    <!-- Topo da página -->
+    <div class="container-fluid bgColor1">
+        <h1>Banco Ianes</h1>
+    </div>
+
+    <!-- Conteúdo da página -->
+    <div class="container bgColor2">
+        <div class="row">
+            <div class="col">
+                <fieldset>
+                    <form action="">
+                        <label for="">Agência:</label>
+                        <br>
+                        <input type="text" name="ag">
+                        <br>
+                        <label for="">Conta Corrente</label>
+                        <input type="text" name="cc">
+                        <br>
+                        <input type="button" value="ENTRAR" onclick="logarBanco(ag.value, cc.value)">
+                        <br>
+                        <label for="">Nome Cliente:</label>
+                        <input type="text" id="cliente" readonly>
+                        <br>
+                        <label for="">Saldo R$</label>
+                        <br>
+                        <input type="number" name="saldo" id="saldo" readonly placeholder="R$ - ">
+                        <br>
+                        <label for="">Valor R$: </label>
+                        <input type="number" name="valor">
+                        <input type="button" value="DEPOSITAR" onclick="depositar(valor.value)">
+                        <input type="button" value="SACAR" onclick="sacar(valor.value)">
+                        <input type="number" id="saldoAtual" readonly placeholder="R$ - ">
+                    </form>
+                </fieldset>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+
+    <!-- Rodapé da página -->
+    <div class="container-fluid bgColor3">
+        <div class="row">
+            <div class="col">
+                <h3>Banco Ianes</h3>
+            </div>
+            <div class="col">
+                <p>All Rights Reserved © 2025.</p>
+            </div>
+            <div class="col">
+                Created by: <a href="">Will BE Digital</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

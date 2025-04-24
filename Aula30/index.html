@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 30</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/dom.js"></script>
+</head>
+
+<body id="modo">
+    <!-- Topo -->
+    <div class="container-fluid">
+        <img src="./img/on.png" id="lamp">
+        <form action="">
+            <input type="button" value="MODO NOTURNO" onclick="noturno()">
+            <input type="button" value="MODO NORMAL" onclick="normal()">
+            <input type="button" value="I / O" onclick="controleLampada()">
+        </form>
+    </div>
+
+    <!-- Conteúdo -->
+    <div class="container">
+
+        <button id="meuBotao">Clique aqui</button>
+        <script>
+            const botao = document.getElementById("meuBotao");
+            botao.addEventListener("click", function () {
+                window.alert("Você clicou no botão!")
+            });
+        </script>
+
+        </form>
+        <h1>DOM Document Object Model</h1>
+        <p>O DOM é uma das APIs mais usadas na web, permitindo que o javascript acesse e altere todos os elementosde um
+            documento HTML</p>
+        <h3>Principais usos do DOM</h3>
+        <ul>
+            <li>Criar páginas inteligentes</li>
+            <li>Criar aplicações inteligentes</li>
+            <li>Modificar o conteúdo ou o estilo de página sem precisar recarregá-la</li>
+        </ul>
+        <h3>Como DOM é criado?</h3>
+        <ul>
+            <li>Os desenvolvedores podem adicionar manipuladores de eventos aos elementos DOM</li>
+            <li>Para isso, é preciso usar métodos como addEventListener ou atributos de eventos diretamente no HTML</li>
+        </ul>
+        <hr>
+
+
+        <h2>Formulário de Cadastro</h2>
+        <form action="" id="formCadastro">
+            <label for="">Nome</label> <br>
+            <input type="text" id="nome" required><br>
+            <label for="">Idade</label> <br>
+            <input type="text" id="idade" required><br>
+            <label for="">Sexo</label><br>
+            <select id="sexo" required>
+                <option value="">Selecione</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
+                <option value="outro">Outro</option>
+            </select><br>
+
+            <label for="">Telefone:</label><br>
+            <input type="text" id="telefone" required><br>
+            <label for="">Email</label><br>
+            <input type="email" id="email" required><br>
+            <button type="submit">Cadastrar</button>
+        </form>
+        <hr>
+        <table id="tabelaCadastro">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Sexo</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Linhas inseridas aqui -->
+            </tbody>
+        </table>
+        <script>
+            document.getElementById("formCadastro").addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita recarregar a página
+
+                //Pegar os valores dos campos
+                const nome = document.getElementById("nome").value;
+                const idade = document.getElementById("idade").value;
+                const sexo = document.getElementById("sexo").value;
+                const telefone = document.getElementById("telefone").value;
+                const email = document.getElementById("email").value;
+
+                const tabela = document.getElementById("tabelaCadastro").getElementsByTagName('tbody')[0];
+                const novaLinha = tabela.InsertRow();
+                novaLinha = tabela.insertCell(0).textContext = nome;
+                novaLinha = tabela.insertCell(1).textContext = idade;
+                novaLinha = tabela.insertCell(2).textContext = sexo;
+                novaLinha = tabela.insertCell(3).textContext = telefone;
+                novaLinha = tabela.insertCell(4).textContext = email;
+                //limpar o formulário após o cadastro
+                this.reset();
+            });
+        </script>
+    </div>
+
+    <!-- Rodapé -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <h3>DOM</h3>
+                <img src="./img/on.png" id="lamp">
+            </div>
+            <div class="col">
+                <p>Copyrights © 2025.</p>
+            </div>
+            <div class="col">
+                <p>Criado por:</p>
+                <a href="">Will Be digital</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
