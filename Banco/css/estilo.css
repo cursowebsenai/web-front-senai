@@ -1,0 +1,29 @@
+
+.bg1{
+    background-image: url(../img/bank.png);
+    height: 400px;
+}
+.bg2{
+    background-image: url(../img/coins.png);
+    height: 350px;
+    
+}
+.bg4{
+    background-image: url(../img/business-7304257_1920.jpg);
+}
+.rodape{
+   
+    text-align: center;
+    display: flex;
+    width: 100%;
+    color: aliceblue;
+    background-color: rgb(39, 37, 37);
+}
+.texto{
+    color: white;
+    text-align: center;
+}
+.alt{
+    margin-top: 150px;
+    margin-bottom: 150px;
+}

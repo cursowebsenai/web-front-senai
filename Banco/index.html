@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página com Formulário</title>
+    <link rel="stylesheet" href="css/banco.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="coluna-esquerda">
+            <h1 class="tituloBank">BANCO IANES</h1>
+            <img src="img/banklogo.png" alt="" class="logoBank">
+        </div>
+        <div class="coluna-direita">
+            <div class="formulario">
+                <h2>Faça seu login</h2>
+                <form action="banco.php" method="POST">
+                    <label for="agencia">Ag.:</label>
+                    <input type="text" id="agencia" name="agencia" placeholder="00000-0">
+
+                    <label for="conta">C/C.:</label>
+                    <input type="text" id="conta" name="conta" placeholder="0000000000-0">
+
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" placeholder="********">
+
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="lgpdBanner">
+        <span>Utilizamos cookies para melhorar sua experiência de navegação, personalizar conteúdos e analisar o tráfego
+            em nosso site. Ao clicar em “Aceitar”, você concorda com o uso de cookies conforme descrito em nossas
+            políticas internas. Para saber mais sobre como utilizamos seus dados, consulte nossa página de Política de
+            Privacidade e Uso dos Dados.</span>
+        <button id="acceptCookies">Aceitar</button>
+    </div>
+    <script>
+        // LGPD banner logic
+        const lgpdBanner = document.getElementById('lgpdBanner');
+        const acceptCookies = document.getElementById('acceptCookies');
+
+        acceptCookies.addEventListener('click', () => {
+            lgpdBanner.style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+
+        // Check if cookies were accepted before
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            lgpdBanner.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
