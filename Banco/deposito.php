@@ -1,3 +1,11 @@
+<?php
+session_start();
+require "conecta.php";
+if(!$_SESSION['dados']){
+  header("Location:index.html");
+}
+
+?>
 <!doctype html>
 <html>
 <head>
@@ -60,7 +68,22 @@
   <div class="container">
     <!--sessão um-->
     <section>
-      
+      <?php
+        $id=$_SESSION['id'];
+        $sql="SELECT * FROM clientes WHERE id_cliente='$id'";
+        $dados=mysqli_query($con, $sql);
+        $vetor=mysqli_fetch_assoc($dados);
+        $nome=$vetor['nome'];
+        $ag=$vetor['agencia'];
+        $conta=$vetor['conta'];
+        $saldo=$vetor['saldo'];
+            echo "<h5>Data: ".$_SESSION['data']."</h5>";
+            echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
+            echo "<hr>";
+            echo "<p>Bem Vindo Sr.(a) " . $nome . "</p>";
+            echo "<p>Agência: " . $ag . "| Conta Corrente: " . $conta. "</p>";
+            echo "<hr>";
+?>
       <h3>Depósito Fácil</h3>
       <div class="row">
         <div class="col-md">
@@ -70,10 +93,20 @@
               <label for="floatingInput">R$ Depósito</label>
           </div>
           <div class="d-grid gap-2">
-            <button class="btn btn-primary" type="submit">Realizar Depósito:</button>
+            <button class="btn btn-primary" type="submit" name="depositar">Realizar Depósito:</button>
           </div>
           </form>
-          
+          <?php
+          if(isset($_POST['depositar'])){
+            $dep=$_POST['deposito'];
+            $saldo=$saldo+$dep;
+            $query="UPDATE clientes SET saldo='$saldo' WHERE id_cliente='$id'";
+            $dados2=mysqli_query($con,$query);
+            echo "<h5>Depósito Realizado com Sucesso!!!</h5>";
+            
+          }
+
+?>
         </div>
         <div class="col-md">
 

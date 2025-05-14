@@ -1,3 +1,10 @@
+<?php
+session_start();
+include "conecta.php";
+if(!$_SESSION['gerente']){
+  header("Location:index.html");
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -60,46 +67,68 @@
   <div class="container">
     <!--sessão um-->
     <section>
-     
+    <?php
+        echo "<h5>Data: ".$_SESSION['data']."</h5>";
+        echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
+        echo "<hr>";
+        echo "<h5>Gerente SenaiClass: ".$_SESSION['cargo']."</h5>";
+        echo "<h5>Nome Gerente: ".$_SESSION['nome']."</h5>";
+        echo "<a href='logout.php'>Sair</a>";
+        $id=$_GET['id'];
+        $senai="SELECT * FROM clientes WHERE id_cliente='$id'";
+        $dados=mysqli_query($con, $senai);
+        $vetor=mysqli_fetch_assoc($dados);
+        ?> 
       <h3>Alterar dados do Cliente:</h3>
       <div class="row">
         <div class="col-md">
           <form action="" method="POST">
             <div class="form-floating mb-3">
               <input type="number" class="form-control" id="floatingInput" placeholder="Cód. Cliente:" name="cod"
-                value="">
+                value="<?php echo $vetor['id_cliente']?>" readonly>
               <label for="floatingInput">Código Cliente</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="floatingInput" placeholder="Nome do Cliente:" name="nome"
-                value="">
+                value="<?php echo $vetor['nome']?>">
               <label for="floatingInput">Nome do Cliente</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="floatingInput" placeholder="Agência do Cliente:"
-                name="agencia" value="">
+                name="agencia" value="<?php echo $vetor['agencia']?>">
               <label for="floatingInput">Agência do Cliente</label>
             </div>
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="floatingInput" placeholder="C/C" name="conta"
-                value="">
+                value="<?php echo $vetor['conta']?>">
               <label for="floatingInput">Conta Corrente</label>
             </div>
             <div class="form-floating mb-3">
               <input type="password" class="form-control" id="floatingInput" placeholder="Senha do Cliente:"
-                name="senha" value="">
+                name="senha" value="<?php echo $vetor['senha']?>">
               <label for="floatingInput">Senha do Cliente</label>
             </div>
             <div class="form-floating mb-3">
               <input type="number" class="form-control" id="floatingInput" placeholder="R$ SALDO:" name="saldo"
-                value="">
+                value="<?php echo $vetor['saldo']?>" readonly>
               <label for="floatingInput">R$ Saldo</label>
             </div>
             <div class="d-grid gap-2">
               <button class="btn btn-success" type="submit" name="atualizar">ATUALIZAR</button>
             </div>
           </form>
-          
+          <?php
+          if(isset($_POST['atualizar'])){        
+          $nome=$_POST['nome'];
+          $ag=$_POST['agencia'];
+          $conta=$_POST['conta'];
+          $senha=$_POST['senha'];
+          $atualiza="UPDATE clientes SET nome='$nome', agencia='$ag', conta='$conta', senha='$senha' WHERE id_cliente='$id'";
+            $resultado=mysqli_query($con, $atualiza);
+            echo "<h3> ALterações Realizadas com Sucesso!!!</h3>";
+            echo "<a href='clientes.php' class=''>Voltar</a>";
+          }
+          ?>
         </div>
         <div class="col-md">
 

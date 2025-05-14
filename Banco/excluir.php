@@ -1,3 +1,10 @@
+<?php
+session_start();
+require "conecta.php";
+if(!$_SESSION['gerente']){
+  header("location: index.html");
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -60,40 +67,58 @@
   <div class="container">
     <!--sessão um-->
     <section>
-      <h3>Excluir DEFINITIVAMENTE dados do cliente:</h3>
-      
+      <?php
+      echo "<h5>Data:".$_SESSION['data']."</h5>";
+      echo "<h5>Hora:".$_SESSION['hora']."</h5>";
+      echo "<hr>";
+      echo "<h5>Gerente SenaiClass:".$_SESSION['cargo']."</h5>";
+      echo "<h5> Nome:".$_SESSION['nome']."</h5>";
+      echo "<a href='logout.php'>Sair</a>";
+      $id=$_GET['id'];
+      $senai="SELECT * FROM clientes WHERE id_cliente='$id'";
+      $dados=mysqli_query($con, $senai);
+      $linha=mysqli_fetch_array($dados);
+     ?>
+      <h3>Excluir DEFINITIVAMENTE dados do cliente:</h3>   
       <div class="row">
         <div class="col-md">
         <form action="" method="POST">
           <div class="form-floating mb-3">
-<input type="number" class="form-control" id="floatingInput" placeholder="Cód. Cliente:" name="cod" value="" readonly>
+<input type="number" class="form-control" id="floatingInput" placeholder="Cód. Cliente:" name="cod" value="<?php echo $linha['id_cliente']?>" readonly>
             <label for="floatingInput">Código Cliente</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Nome do Cliente:" name="nome" value="" readonly>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Nome do Cliente:" name="nome" value="<?php echo $linha['nome']?>" readonly>
             <label for="floatingInput">Nome do Cliente</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Agência do Cliente:" name="agencia" value="" readonly>
+            <input type="text" class="form-control" id="floatingInput" placeholder="Agência do Cliente:" name="agencia" value="<?php echo $linha['agencia']?>" readonly>
             <label for="floatingInput">Agência do Cliente</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="floatingInput" placeholder="C/C" name="conta" value="" readonly>
+            <input type="text" class="form-control" id="floatingInput" placeholder="C/C" name="conta" value="<?php echo $linha['conta']?>" readonly>
             <label for="floatingInput">Conta Corrente</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="floatingInput" placeholder="Senha do Cliente:" name="senha" value="" readonly>
+            <input type="password" class="form-control" id="floatingInput" placeholder="Senha do Cliente:" name="senha" value="<?php echo $linha['senha']?>" readonly>
             <label for="floatingInput">Senha do Cliente</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="number" class="form-control" id="floatingInput" placeholder="R$ SALDO:" name="saldo" value="" readonly>
+            <input type="number" class="form-control" id="floatingInput" placeholder="R$ SALDO:" name="saldo" value="<?php echo $linha['saldo']?>" readonly>
             <label for="floatingInput">R$ Saldo</label>
           </div>
           <div class="d-grid gap-2">
             <button class="btn btn-success" type="submit" name="excluir">EXCLUIR CONTA</button>
           </div>
           </form>
-          
+          <?php
+          if(isset($_POST['excluir'])){
+            $excluir="DELETE FROM clientes WHERE id_cliente='$id'";
+            $dados=mysqli_query($con, $excluir);
+            echo "<h5>Dados Excluidos com Sucesso!!!</h5>";
+            echo "<a href='clientes.php'>Voltar</a>";
+          }
+          ?>
         </div>
         <div class="col-md">
 

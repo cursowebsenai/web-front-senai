@@ -1,26 +1,3 @@
-<?php
-session_start();
-include "conecta.php";
-if(!$_SESSION['gerente']){
-  header("location:index.html");
-}
-        
-        $usuario = '';
-        $pass = '';
-        if (isset($_POST['gerente']) and isset($_POST['senha'])) {
-          $usuario=$_POST['gerente'];
-          $pass=$_POST['senha'];
-          $sql="SELECT * FROM clientes WHERE conta='$usuario' AND senha='$pass'";
-          $dados=mysqli_query($con, $sql);
-          $linha=mysqli_fetch_assoc($dados);
-          $_SESSION['nome']=$linha['nome'];
-          $_SESSION['cargo']=$linha['agencia'];
-          $_SESSION['gerente']=true;
-          //echo "<p> Nome:".$nome."</p>";
-          //echo "<p> Nome:".$cargo."</p>";
-          }  
-      
-        ?>
 <!doctype html>
 <html>
 <head>
@@ -84,14 +61,7 @@ if(!$_SESSION['gerente']){
   <div class="container">
     <!--sessão um-->
     <section>
-    <?php
-        echo "<h5>Data: ".$_SESSION['data']."</h5>";
-        echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
-        echo "<hr>";
-        echo "<h5>Gerente SenaiClass: ".$_SESSION['cargo']."</h5>";
-        echo "<h5>Nome Gerente: ".$_SESSION['nome']."</h5>";
-        echo "<a href='logout.php' class='btn btn-dark'>Sair</a><a href='cadastrar.php' class='btn btn-primary'>Abrir Nova Conta</a>";
-        ?>  
+        
     </section>
     <!--sessão dois-->
     <section>
@@ -108,27 +78,7 @@ if(!$_SESSION['gerente']){
                 </tr>
             </thead>
             <tbody>
-    <?php
-    $query="SELECT * FROM clientes";
-    $dados2=mysqli_query($con, $query);        
-    while($linha2=mysqli_fetch_assoc($dados2)){  
-    $cod=$linha2['id_cliente'];            
-    echo "<tr>               
-    <th scope='row'>".$linha2['id_cliente']."</th>
-    <td>".$linha2['nome']."</td>
-    <td>".$linha2['agencia']."</td>
-    <td>".$linha2['conta']."</td>
-    <td>".$linha2['senha']."</td>
-    <td>".$linha2['saldo']."</td>
-    <td>
-    <div class='btn-group' role='group' aria-label='Basic example'>
-    <a href='editar.php?id=$cod' class='btn btn-success'>Editar</a>
-    <a href='excluir.php?id=$cod' class='btn btn-danger'>Excluir</a>
-                        </div>
-                    </td>
-                </tr>
-                ";
-              }?>
+              
             </tbody>
         </table>
     </section>

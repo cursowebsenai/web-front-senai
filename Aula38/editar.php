@@ -1,10 +1,3 @@
-<?php
-session_start();
-require "conecta.php";
-if(!$_SESSION['dados']){
-  header("Location:index.html");
-}
-?>
 <!doctype html>
 <html>
 <head>
@@ -54,9 +47,9 @@ if(!$_SESSION['dados']){
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" aciton="" method="post">
-          <input class="form-control mr-sm-2" type="text" placeholder="Agência" aria-label="Search" name="agencia">
-          <input class="form-control mr-sm-2" type="text" placeholder="Conta Corrente" aria-label="Search" name="conta">
-          <input class="form-control mr-sm-2" type="password" placeholder="Senha" aria-label="Search" name="senha">
+          <input class="form-control mr-sm-2" type="text" placeholder="Agência" aria-label="Search">
+          <input class="form-control mr-sm-2" type="text" placeholder="Conta Corrente" aria-label="Search">
+          <input class="form-control mr-sm-2" type="password" placeholder="Senha" aria-label="Search">
 
           <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">ENTRAR</button>
           <a href="logout.php">Sair</a>
@@ -67,49 +60,46 @@ if(!$_SESSION['dados']){
   <div class="container">
     <!--sessão um-->
     <section>
-    <?php
-        $id=$_SESSION['id'];
-        $sql="SELECT * FROM clientes WHERE id_cliente='$id'";
-        $dados=mysqli_query($con, $sql);
-        $vetor=mysqli_fetch_assoc($dados);
-        $nome=$vetor['nome'];
-        $ag=$vetor['agencia'];
-        $conta=$vetor['conta'];
-        $saldo=$vetor['saldo'];
-            echo "<h5>Data: ".$_SESSION['data']."</h5>";
-            echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
-            echo "<hr>";
-            echo "<p>Bem Vindo Sr.(a) " . $nome . "</p>";
-            echo "<p>Agência: " . $ag . "| Conta Corrente: " . $conta. "</p>";
-            echo "<hr>";
-?> 
-      <h3>Saque Fácil</h3>
+     
+      <h3>Alterar dados do Cliente:</h3>
       <div class="row">
         <div class="col-md">
           <form action="" method="POST">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="floatingInput" placeholder="R$ Saque:" name="saque">
-              <label for="floatingInput">R$ Saque</label>
+              <input type="number" class="form-control" id="floatingInput" placeholder="Cód. Cliente:" name="cod"
+                value="">
+              <label for="floatingInput">Código Cliente</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="Nome do Cliente:" name="nome"
+                value="">
+              <label for="floatingInput">Nome do Cliente</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="Agência do Cliente:"
+                name="agencia" value="">
+              <label for="floatingInput">Agência do Cliente</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingInput" placeholder="C/C" name="conta"
+                value="">
+              <label for="floatingInput">Conta Corrente</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingInput" placeholder="Senha do Cliente:"
+                name="senha" value="">
+              <label for="floatingInput">Senha do Cliente</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="floatingInput" placeholder="R$ SALDO:" name="saldo"
+                value="">
+              <label for="floatingInput">R$ Saldo</label>
             </div>
             <div class="d-grid gap-2">
-              <button class="btn btn-primary" type="submit" name="sacar">Realizar Saque</button>
+              <button class="btn btn-success" type="submit" name="atualizar">ATUALIZAR</button>
             </div>
           </form>
-          <?php
-          if(isset($_POST['sacar'])){
-            $saque=$_POST['saque'];
-            if($saque>$saldo){
-              echo "<h5>Saldo indisponível!!! Saque não realizado</h5>"; 
-            }
-            else{
-            $saldo=$saldo-$saque;
-            $query="UPDATE clientes SET saldo='$saldo' WHERE id_cliente='$id'";
-            $dados2=mysqli_query($con, $query);
-            echo "<h5>Saque Realizado com Sucesso!!!</h5>";
-            }
-          }
-
-?>
+          
         </div>
         <div class="col-md">
 

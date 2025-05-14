@@ -1,11 +1,13 @@
 <?php
 session_start();
+error_reporting(0);
 include "conecta.php";
+if(!$_SESSION['dados']){
+  header("location:index.html");
+}
 ?>
-
 <!doctype html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="css/estilo.css">
@@ -26,7 +28,7 @@ include "conecta.php";
 
 <body>
   <div class="container-fluid bg1">
-
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"><b>BANCO $$$</b></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -66,28 +68,33 @@ include "conecta.php";
   <div class="container">
     <!--sessão um-->
     <section>
-      <?php
-      echo "<h5>Data: " . $_SESSION['data'] . "</h5>";
-      echo "<h5>Hora: " . $_SESSION['hora'] . "</h5>";
-      if (isset($_POST['agencia']) && isset($_POST['conta']) && isset($_POST['senha'])) {
-        $senha = $_POST['senha'];
-        $conta = $_POST['conta'];
-        $ag = $_POST['agencia'];
-
-        $sql = "SELECT * FROM clientes WHERE senha='$senha' AND conta='$conta' AND agencia='$ag'";
-        $dados = mysqli_query($con, $sql);
-        $linha = mysqli_fetch_assoc($dados);
-        $nome = $linha['nome'];
-        $saldo = $linha['saldo'];
-        $_SESSION['dados'] = true;
-        echo "<p> Bem Vindo Sr.(a) " . $nome . "</p>";
-        echo "<p> Agência: " . $ag . "| Conta Corrente: " . $conta . "</p>";
-        echo "<hr>";
-        echo "<p> Seu saldo atual é: R$ " . $saldo . "</p>";
-      } else {
-        echo "Dados não encontrados.";
-      }
-      ?>
+   <?php
+    echo "<h5>Data: ".$_SESSION['data']."</h5>";
+    echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
+    echo "<hr>";
+    if(isset($_POST['agencia']) && isset($_POST['conta']) && isset($_POST['senha'])){
+      $senha=$_POST['senha'];
+      $conta=$_POST['conta'];
+      $ag=$_POST['agencia'];
+      $sql = "SELECT * FROM clientes WHERE senha='$senha' AND conta='$conta' AND agencia='$ag'"; 
+      $dados = mysqli_query($con, $sql);
+      if (mysqli_num_rows($dados) > 0) {
+      $linha = mysqli_fetch_assoc($dados);
+      $nome=$linha['nome'];
+      $saldo=$linha['saldo'];
+      $_SESSION['id']=$linha['id_cliente'];
+      $_SESSION['dados']=true;  
+    echo "<p>Bem Vindo Sr.(a) " . $nome . "</p>";
+    echo "<p>Agência: " . $ag . "| Conta Corrente: " . $conta. "</p>";
+    echo "<hr>";
+    echo "<p>Seu saldo atual é: R$".$saldo."</p>";  
+    } 
+    else{
+      echo "<script>window.alert('Entrada Negada');</script>";
+      header("location:index.html");
+    }  
+  }
+   ?>
     </section>
     <!--sessão dois-->
     <section>
@@ -105,8 +112,8 @@ include "conecta.php";
     <div class="row rodape">
       <center>
         <p class=""><b>SUA EMPRESA</b> - Todos os Direitos Reservados | Copyright © 2024.</p>
-      </center>
-    </div>
+    </center>
+    </div>  
   </div>
 </body>
 

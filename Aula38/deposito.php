@@ -1,10 +1,3 @@
-<?php
-session_start();
-require "conecta.php";
-if(!$_SESSION['dados']){
-  header("Location:index.html");
-}
-?>
 <!doctype html>
 <html>
 <head>
@@ -53,7 +46,7 @@ if(!$_SESSION['dados']){
             <a class="nav-link" href="conta.php">Abrir Conta</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0" aciton="" method="post">
+        <form class="form-inline my-2 my-lg-0" action="" method="POST">
           <input class="form-control mr-sm-2" type="text" placeholder="Agência" aria-label="Search" name="agencia">
           <input class="form-control mr-sm-2" type="text" placeholder="Conta Corrente" aria-label="Search" name="conta">
           <input class="form-control mr-sm-2" type="password" placeholder="Senha" aria-label="Search" name="senha">
@@ -67,49 +60,20 @@ if(!$_SESSION['dados']){
   <div class="container">
     <!--sessão um-->
     <section>
-    <?php
-        $id=$_SESSION['id'];
-        $sql="SELECT * FROM clientes WHERE id_cliente='$id'";
-        $dados=mysqli_query($con, $sql);
-        $vetor=mysqli_fetch_assoc($dados);
-        $nome=$vetor['nome'];
-        $ag=$vetor['agencia'];
-        $conta=$vetor['conta'];
-        $saldo=$vetor['saldo'];
-            echo "<h5>Data: ".$_SESSION['data']."</h5>";
-            echo "<h5>Hora: ".$_SESSION['hora']."</h5>";
-            echo "<hr>";
-            echo "<p>Bem Vindo Sr.(a) " . $nome . "</p>";
-            echo "<p>Agência: " . $ag . "| Conta Corrente: " . $conta. "</p>";
-            echo "<hr>";
-?> 
-      <h3>Saque Fácil</h3>
+      
+      <h3>Depósito Fácil</h3>
       <div class="row">
         <div class="col-md">
-          <form action="" method="POST">
-            <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="floatingInput" placeholder="R$ Saque:" name="saque">
-              <label for="floatingInput">R$ Saque</label>
-            </div>
-            <div class="d-grid gap-2">
-              <button class="btn btn-primary" type="submit" name="sacar">Realizar Saque</button>
-            </div>
+          <div class="form-floating mb-3">
+            <form action="" method="POST">
+              <input type="number" class="form-control" id="floatingInput" placeholder="R$ Depósito:" name="deposito">
+              <label for="floatingInput">R$ Depósito</label>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">Realizar Depósito:</button>
+          </div>
           </form>
-          <?php
-          if(isset($_POST['sacar'])){
-            $saque=$_POST['saque'];
-            if($saque>$saldo){
-              echo "<h5>Saldo indisponível!!! Saque não realizado</h5>"; 
-            }
-            else{
-            $saldo=$saldo-$saque;
-            $query="UPDATE clientes SET saldo='$saldo' WHERE id_cliente='$id'";
-            $dados2=mysqli_query($con, $query);
-            echo "<h5>Saque Realizado com Sucesso!!!</h5>";
-            }
-          }
-
-?>
+          
         </div>
         <div class="col-md">
 
