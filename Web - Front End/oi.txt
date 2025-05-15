@@ -1,0 +1,20 @@
+Revisão Lógica Condicional Simples
+
+EM um veiculo FLEX 1.0 caso a relação entre o Alcool e a Gasolina for superior ou o mesmo que 70%, a melhor opção de abastecimento é a GASOLINA, caso contrario a melhor opção de abastecimento é o Alcool.
+
+##############################################################
+
+Exemplo 2
+
+Em um banco caso a data de um pagamento ocorra depois da data do vencimento, o valor a ser pago deve ser o valor do boleto acrescido de 12,5%,se o data de pagamento for anterior a data de vencimento, então o valor pago terá desconto de 8%, caso contrário o valor a ser pago deve ser o mesmo do boleto.
+
+
+
+
+
+
+
+
+
+
+

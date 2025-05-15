@@ -1,0 +1,15 @@
+Sistema de triagem:
+Caso o usuário com nome informado tiver idade maior ou igual a 18 anos e formação for superior completo ou nivel de ingles igual a fluente, neste caso apresentar o nome do candidato e que ele esta na proxima fase, caso contrário, apresentar o nome e dispensado.
+
+Exercicio 1
+Criar um tela de sistema que receba o peso da pessoa (kl) e a altura (mts) e calcule o IMC.. O sistema deve mostrar o indice do IMC como resultado e o perfil que a pessoa se enquadra.
+
+Exercicio 2
+Criar um Sistema que receba o nome de um funcionario, o cargo, e a quantidade de dependentes, o valor do salário bruto e calcule e apresente os resutlados abaixo:
+A- o desconto de vale transporte (6%)
+B- O desconto de vale alimentação (3,8%)
+C- o desconto de plano de saude R$187,90 p/dependente+funcionario
+D- o desconto de INSS (baseado na tabela)
+E- o desconto de IRRF (baseado na tabela)
+F- o Total de descontos
+G- o Salário Líquido

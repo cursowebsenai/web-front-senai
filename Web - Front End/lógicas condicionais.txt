@@ -1,0 +1,7 @@
+Na escola IANES se o aluno tiver MEDIA FINAL 
+maior ou igual a 7, então ele estará "APROVADO",
+senão, ele estará "REPROVADO".
+
+Em uma divisão caso o valor 2 for o mesmo que ZERO,
+o resultado deve ser: "NÃO É POSSIVEL DIVIDIR POR 0",
+caso contrário, mostrar o resultado da divisão;
